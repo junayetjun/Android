@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Game</string>
+    <string name="welcome">Welcome Back</string>
+    <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
+
+</resources>
