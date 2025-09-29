@@ -1,31 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="10dp">
+    android:padding="16dp"
+    android:background="?android:attr/windowBackground">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.Material3.Dark.ActionBar"
+        app:title="Make Your Order Confirm"
+        app:titleTextColor="@android:color/white"
+        app:navigationIcon="?attr/homeAsUpIndicator" />
 
     <!-- RecyclerView for cart items -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cartRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        app:layout_constraintTop_toBottomOf="@id/titleCard"
+        app:layout_constraintBottom_toTopOf="@id/cartButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="50dp"/>
 
-    <!-- Total price display -->
-    <TextView
-        android:id="@+id/totalText"
+    <!-- CardView for total price -->
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Total: $0.00"
-        android:textSize="18sp"
-        android:padding="8dp"/>
+        android:layout_marginBottom="12dp"
+        android:elevation="4dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp">
 
-    <!-- Checkout button -->
-    <Button
+        <TextView
+            android:id="@+id/totalText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="Total: $0.00"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            android:textColor="@android:color/black" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Material Button for checkout -->
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/checkoutButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Checkout"/>
+        android:text="Confirm!"
+        style="@style/Widget.Material3.Button"
+        app:cornerRadius="12dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="?attr/colorPrimary"
+        android:textColor="?android:attr/textColorPrimaryInverse" />
+
 </LinearLayout>

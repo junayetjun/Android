@@ -12,21 +12,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Food">
         <activity
+            android:name=".Splash"
+            android:exported="true" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
             android:name=".OrderSummaryActivity"
-            android:exported="false" />
-        <!-- CartActivity -->
+            android:exported="false" /> <!-- CartActivity -->
         <activity
             android:name=".CartActivity"
             android:exported="false" /> <!-- MainActivity -->
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false"/>
     </application>
 
 </manifest>

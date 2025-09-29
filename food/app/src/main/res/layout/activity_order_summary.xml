@@ -1,33 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="10dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="?android:colorBackground">
 
-    <!-- Title -->
-    <TextView
-        android:id="@+id/orderSummaryTitle"
-        android:layout_width="wrap_content"
+    <!-- Toolbar (if applicable) -->
+    <!-- If you're using this inside a fragment or want a header -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Order Summary"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:paddingBottom="10dp"/>
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.Material3.Dark.ActionBar"
+        app:title="Order Summary"
+        app:titleTextColor="@android:color/white"
+        app:navigationIcon="?attr/homeAsUpIndicator" />
 
-    <!-- RecyclerView for order items -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/summaryRecyclerView"
+    <!-- Card Container -->
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="12dp">
 
-    <!-- Total price -->
-    <TextView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/summaryRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Total Price Display -->
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/summaryTotalText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Total: $0.00"
         android:textSize="18sp"
-        android:paddingTop="10dp"/>
+        android:textStyle="bold"
+        android:textColor="?android:textColorPrimary"
+        android:gravity="end"
+        android:paddingTop="8dp" />
+
 </LinearLayout>

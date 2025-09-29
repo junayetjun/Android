@@ -2,7 +2,6 @@ package com.istiaq.food;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,17 +26,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         recyclerView = findViewById(R.id.recyclerView);
-        cartButton = findViewById(R.id.cartButton); // add this
+        cartButton = findViewById(R.id.cartButton);
 
-        // Sample food list
         List<Food> foodList = Arrays.asList(
-                new Food("Pizza", 8.99, "Cheesy pizza with tomato sauce"),
-                new Food("Burger", 5.99, "Beef burger with fries"),
-                new Food("Pasta", 7.49, "Italian pasta with white sauce"),
-                new Food("Sandwich", 4.99, "Veggie sandwich with mayo")
+                new Food("Pizza", 8.99, "Cheesy pizza with tomato sauce", R.drawable.pizza),
+                new Food("Burger", 5.99, "Beef burger with fries", R.drawable.burger),
+                new Food("Pasta", 7.49, "Italian pasta with white sauce", R.drawable.pasta),
+                new Food("Sandwich", 4.99, "Veggie sandwich with mayo", R.drawable.sandwich),
+                new Food("Curry Pizza", 8.99, "Cheesy pizza with tomato sauce", R.drawable.pizza),
+                new Food("Chesse Burger", 5.99, "Beef burger with fries", R.drawable.burger),
+                new Food("DeliciousPasta", 7.49, "Italian pasta with white sauce", R.drawable.pasta),
+                new Food("Pasta", 4.99, "Veggie sandwich with mayo", R.drawable.pastat)
         );
 
-        // Set adapter with click listener
         adapter = new FoodAdapter(foodList, food -> {
             CartManager.getInstance().addItem(new CartItem(food.getName(), food.getPrice()));
         });
@@ -45,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
-        // Handle button click to open CartActivity
         cartButton.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, CartActivity.class);
             startActivity(intent);

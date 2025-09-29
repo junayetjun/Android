@@ -6,4 +6,10 @@
     </style>
 
     <style name="Theme.Food" parent="Base.Theme.Food" />
+    <style name="Theme.FoodApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize colors if needed -->
+        <item name="colorPrimary">#6200EE</item>
+        <item name="colorPrimaryVariant">#3700B3</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+    </style>
 </resources>
